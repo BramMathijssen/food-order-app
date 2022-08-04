@@ -1,0 +1,15 @@
+@import "../../sassStyles/variables";
+
+button{
+    width: 130px;
+    background-color: $primary-color;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    height: 38px;
+    font-weight: bold;
+    
+    p{
+        font-weight: 400
+    }
+}

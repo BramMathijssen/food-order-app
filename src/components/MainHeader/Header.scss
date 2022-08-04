@@ -1,0 +1,43 @@
+@import "../../sassStyles/variables";
+
+.header {
+  padding-left: 150px;
+  padding-right: 150px;
+  background: rgb(255, 96, 96);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 96, 96, 0.17970938375350143) 0%,
+    rgba(255, 255, 255, 1) 53%
+  );
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 100px;
+
+  .text {
+    width: 650px;
+    display: flex;
+    flex-direction: column;
+
+    &__big {
+      color: $text-color;
+      margin-top: -50px;
+      font-size: 70px;
+      margin-bottom: 35px;
+      span {
+        color: $primary-color;
+      }
+    }
+    &__small {
+        font-size: 20px;
+        font-weight: 400;
+        color: $text-color2;
+    }
+    &__button{
+        margin-top: 35px;
+    }
+  }
+}
