@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 const MealContext = React.createContext({
     onSubmitMeals: () => { },
+    mealsAmount: 0
+
 });
 
 export const MealContextProvider = (props) => {
@@ -15,7 +17,7 @@ export const MealContextProvider = (props) => {
     console.log(mealAmount);
 
     return (
-        <MealContext.Provider value={{ onSubmitMeals: submitMealsHandler, myVal: 1 }}>
+        <MealContext.Provider value={{ onSubmitMeals: submitMealsHandler, mealsAmount: mealAmount }}>
             {props.children}
         </MealContext.Provider>
     )
