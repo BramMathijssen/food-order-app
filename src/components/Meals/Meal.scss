@@ -1,0 +1,43 @@
+@import "../../sassStyles/variables";
+
+.meal {
+  background-color: rgba(255, 96, 96, 0.08);
+  border-radius: 12px;
+  position: relative;
+
+  &__image {
+    width: 100%;
+    border-radius: 10px;
+  }
+}
+
+.content {
+  padding: 25px;
+  &__title {
+    margin-bottom: 10px;
+  }
+  &__description {
+  }
+}
+
+.controls {
+  position: absolute;
+  bottom: -15px;
+  right: 0px;
+  display: flex;
+  column-gap: 0.875rem;
+  margin-right: 25px;
+
+  &__amount {
+    width: 31px;
+    height: 33px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    text-align: center;
+    -webkit-box-shadow: 3px 4px 8px -1px rgba(0, 0, 0, 0.03);
+    box-shadow: 3px 4px 8px -1px rgba(0, 0, 0, 0.05);
+    color: $text-color-light;
+
+  }
+}

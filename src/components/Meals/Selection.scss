@@ -1,0 +1,24 @@
+@import "../../sassStyles/variables";
+
+.selection {
+  height: 100vh;
+  padding-left: 150px;
+  padding-right: 150px;
+
+  &__title {
+    margin-bottom: 50px;
+  }
+}
+
+.grid-container {
+  display: grid;
+  height: 50%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  row-gap: 40px;
+  column-gap: 25px;
+
+  &__item {
+    background-color: $primary-color;
+  }
+}

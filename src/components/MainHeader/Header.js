@@ -13,7 +13,7 @@ const Header = () => {
                     <h1 className="text__big">Delicious <span>Food</span>, <br></br> Delivered To You</h1>
                     <p className="text__small">Chose your favorite meal from our broad selection and
                         enjoy a delicious lunch or dinner at home</p>
-                    <Button className="text__button" content="Get Started"></Button>
+                    <Button className="btn btn--large" content="Get Started"></Button>
                 </div>
                 <img src={hotdog} alt="hotdog"></img>
 

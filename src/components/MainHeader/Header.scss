@@ -1,6 +1,7 @@
 @import "../../sassStyles/variables";
 
 .header {
+  height: 100vh;
   padding-left: 150px;
   padding-right: 150px;
   background: rgb(255, 96, 96);
@@ -32,12 +33,10 @@
       }
     }
     &__small {
-        font-size: 20px;
-        font-weight: 400;
-        color: $text-color2;
-    }
-    &__button{
-        margin-top: 35px;
+      font-size: 20px;
+      font-weight: 400;
+      color: $text-color2;
+      margin-bottom: 35px;
     }
   }
 }
