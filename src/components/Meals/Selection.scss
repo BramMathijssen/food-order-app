@@ -6,7 +6,9 @@
   padding-right: 150px;
 
   &__title {
-    margin-bottom: 50px;
+    font-size: 38px;
+    margin-bottom: 75px;
+    color: $text-color;
   }
 }
 
@@ -15,8 +17,8 @@
   height: 50%;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  row-gap: 40px;
-  column-gap: 25px;
+  row-gap: 75px;
+  column-gap: 7rem;
 
   &__item {
     background-color: $primary-color;

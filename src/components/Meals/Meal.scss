@@ -7,16 +7,16 @@
 
   &__image {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 15px;
   }
 }
 
 .content {
-  padding: 25px;
+    padding: 25px 50px;
+    padding-bottom: 40px;
+
   &__title {
     margin-bottom: 10px;
-  }
-  &__description {
   }
 }
 
@@ -38,6 +38,18 @@
     -webkit-box-shadow: 3px 4px 8px -1px rgba(0, 0, 0, 0.03);
     box-shadow: 3px 4px 8px -1px rgba(0, 0, 0, 0.05);
     color: $text-color-light;
+  }
 
+  &__add{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .button--icon{
+        font-weight: bold;
+        height: 18px;
+        width: 18px;
+
+      }
   }
 }

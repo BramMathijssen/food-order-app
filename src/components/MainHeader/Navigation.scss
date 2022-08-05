@@ -2,11 +2,12 @@
 
 .navigation {
   display: flex;
-  height: 75px;
+  height: 95px;
   justify-content: space-between;
   align-items: center;
 
   &__logo {
     color: $primary-color;
+    font-size: 24px;
   }
 }

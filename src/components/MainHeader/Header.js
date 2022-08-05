@@ -15,7 +15,7 @@ const Header = () => {
                         enjoy a delicious lunch or dinner at home</p>
                     <Button className="btn btn--large" content="Get Started"></Button>
                 </div>
-                <img src={hotdog} alt="hotdog"></img>
+                <img className='container__image' src={hotdog} alt="hotdog"></img>
 
             </div>
         </header>

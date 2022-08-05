@@ -1,5 +1,8 @@
 import './Meal.scss';
 
+import { IonIcon } from "@ionic/react";
+import { addOutline } from 'ionicons/icons';
+
 
 const Meal = (props) => {
     console.log(props.source)
@@ -12,7 +15,9 @@ const Meal = (props) => {
             </div>
             <div className='controls'>
                 <input className='controls__amount' value='1'></input>
-                <button className='controlls__add btn btn--circle'>+</button>
+                <button className='controls__add btn btn--circle'>
+                    <IonIcon className='button--icon'icon={addOutline} />
+                </button>
             </div>
         </div>
 

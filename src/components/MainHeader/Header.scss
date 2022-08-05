@@ -16,7 +16,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 150px;
 
   .text {
     width: 650px;
@@ -26,17 +26,21 @@
     &__big {
       color: $text-color;
       margin-top: -50px;
-      font-size: 70px;
+      font-size: 80px;
       margin-bottom: 35px;
       span {
         color: $primary-color;
       }
     }
     &__small {
-      font-size: 20px;
+      font-size: 23px;
       font-weight: 400;
       color: $text-color2;
       margin-bottom: 35px;
     }
+  }
+
+  &__image{
+    width: 28%;
   }
 }
