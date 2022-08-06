@@ -2,20 +2,22 @@ import './Meal.scss';
 
 import { IonIcon } from "@ionic/react";
 import { addOutline } from 'ionicons/icons';
-import { useContext, useRef } from 'react';
+import { useContext, useRef, useState } from 'react';
 import MealContext from '../../context/meal-context'
 
 const Meal = (props) => {
     const mealInputRef = useRef();
     const mealCtx = useContext(MealContext);
+    const [mealObject, setMealObject] = useState({ name: props.title, amount: '', price: props.price });
 
     const submitHandler = (e) => {
         e.preventDefault();
         const enteredMealAmount = + mealInputRef.current.value;
         mealCtx.onSubmitMeals(enteredMealAmount);
+        setMealObject({ id: props.id, name: props.title, amount: enteredMealAmount, price: props.price });
+        mealCtx.onSubmitMealsObject(mealObject);
     }
-    
-    console.log(mealCtx.myVal);
+
 
     return (
         <div className='meal'>
@@ -34,7 +36,6 @@ const Meal = (props) => {
         </div>
 
     )
-
 }
 
 export default Meal;

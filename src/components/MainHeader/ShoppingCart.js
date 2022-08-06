@@ -1,19 +1,36 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { IonIcon } from "@ionic/react";
 import { cartOutline } from 'ionicons/icons';
 import MealContext from '../../context/meal-context'
 
 import './ShoppingCart.scss';
+import Modal from "../UI/Modal";
 
 const ShoppingCart = () => {
+    const [modal, setModal] = useState();
     const mealCtx = useContext(MealContext)
 
+    const closeModalHandler = () => {
+        console.log('clicked modal handler');
+        setModal('');
+    }
+
+    const openModal = () => {
+        setModal(<Modal closeModal={closeModalHandler}/>)
+        return;
+    }
+
     return (
-        <div className="shoppingcart">
-            <IonIcon className="shoppingcart__icon" icon={cartOutline} />
-            <p className="shoppingcart__text">Your Cart</p>
-            <p className="shoppingcart__amount">{mealCtx.mealsAmount}</p>
-        </div>
+        <React.Fragment>
+            <div>
+                {modal}
+            </div>
+            <div className="shoppingcart" onClick={openModal}>
+                <IonIcon className="shoppingcart__icon" icon={cartOutline} />
+                <p className="shoppingcart__text">Your Cart</p>
+                <p className="shoppingcart__amount">{mealCtx.mealsAmount}</p>
+            </div>
+        </React.Fragment>
     )
 }
 
