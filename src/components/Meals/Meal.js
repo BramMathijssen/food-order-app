@@ -2,21 +2,32 @@ import './Meal.scss';
 
 import { IonIcon } from "@ionic/react";
 import { addOutline } from 'ionicons/icons';
-import { useContext, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import MealContext from '../../context/meal-context'
+import CartContext from '../../context/cart-context';
 
 const Meal = (props) => {
     const mealInputRef = useRef();
     const mealCtx = useContext(MealContext);
+    const cartCtx = useContext(CartContext);
     const [mealObject, setMealObject] = useState({ name: props.title, amount: '', price: props.price });
 
     const submitHandler = (e) => {
         e.preventDefault();
         const enteredMealAmount = + mealInputRef.current.value;
-        mealCtx.onSubmitMeals(enteredMealAmount);
-        setMealObject({ id: props.id, name: props.title, amount: enteredMealAmount, price: props.price });
-        mealCtx.onSubmitMealsObject(mealObject);
+        // mealCtx.onSubmitMeals(enteredMealAmount);
+        // setMealObject({ id: props.id, name: props.title, amount: enteredMealAmount, price: props.price });
+        // console.log(`from submit handler ${props.name} and ${enteredMealAmount}`);
+        // mealCtx.onSubmitMealsObject(mealObject);
+
+        //call cart-context dispatchHandler
+        cartCtx.addToCart();
     }
+
+    // useEffect(() => {
+    //     const enteredMealAmount = + mealInputRef.current.value;
+    //     console.log(`from useffect handler ${props.name} and ${enteredMealAmount}`);
+    // }, [props.name])
 
 
     return (
