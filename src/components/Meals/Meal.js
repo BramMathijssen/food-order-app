@@ -3,32 +3,36 @@ import './Meal.scss';
 import { IonIcon } from "@ionic/react";
 import { addOutline } from 'ionicons/icons';
 import { useContext, useEffect, useRef, useState } from 'react';
-import MealContext from '../../context/meal-context'
 import CartContext from '../../context/cart-context';
 
 const Meal = (props) => {
     const mealInputRef = useRef();
-    const mealCtx = useContext(MealContext);
     const cartCtx = useContext(CartContext);
     const [mealObject, setMealObject] = useState({ name: props.title, amount: '', price: props.price });
+
+    // Using useEffect when we use Solution 1 to send the mealObject to CartContext
+    // useEffect(() => {
+    //     console.log('running usefffect');
+    //     const enteredMealAmount = + mealInputRef.current.value;
+    //     //setMealObject({ id: props.id, name: props.title, amount: enteredMealAmount, price: props.price })
+    //     cartCtx.addToCart(mealObject, enteredMealAmount);
+
+
+    // }, [mealObject])
+
 
     const submitHandler = (e) => {
         e.preventDefault();
         const enteredMealAmount = + mealInputRef.current.value;
-        // mealCtx.onSubmitMeals(enteredMealAmount);
-        // setMealObject({ id: props.id, name: props.title, amount: enteredMealAmount, price: props.price });
-        // console.log(`from submit handler ${props.name} and ${enteredMealAmount}`);
-        // mealCtx.onSubmitMealsObject(mealObject);
 
-        //call cart-context dispatchHandler
-        cartCtx.addToCart();
+        // Solution 1 -> useEffect
+        // setMealObject({ id: props.id, name: props.title, amount: enteredMealAmount, price: props.price })
+        // cartCtx.addToCart(mealObject, enteredMealAmount);
+ 
+        // Oplossing 2 -> Directly sending the object to mealCtx, without using State. 
+        cartCtx.addToCart({ id: props.id, name: props.title, amount: enteredMealAmount, price: props.price }, enteredMealAmount);
+
     }
-
-    // useEffect(() => {
-    //     const enteredMealAmount = + mealInputRef.current.value;
-    //     console.log(`from useffect handler ${props.name} and ${enteredMealAmount}`);
-    // }, [props.name])
-
 
     return (
         <div className='meal'>
