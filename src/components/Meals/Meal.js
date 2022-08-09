@@ -29,7 +29,7 @@ const Meal = (props) => {
         // setMealObject({ id: props.id, name: props.title, amount: enteredMealAmount, price: props.price })
         // cartCtx.addToCart(mealObject, enteredMealAmount);
  
-        // Oplossing 2 -> Directly sending the object to mealCtx, without using State. 
+        // Solution 2 -> Directly sending the object to mealCtx, without using State. 
         cartCtx.addToCart({ id: props.id, name: props.title, amount: enteredMealAmount, price: props.price }, enteredMealAmount);
 
     }
