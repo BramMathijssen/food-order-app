@@ -1,22 +1,24 @@
 import React, { useContext } from "react";
-import MealContext from "../../context/meal-context";
+import CartContext from "../../context/cart-context";
 
 import './Modal.scss';
 
 const Modal = (props) => {
-    const mealCtx = useContext(MealContext);
-    console.log(mealCtx.mealsList);
+    const cartCtx = useContext(CartContext);
 
     return (
         <div className="modal">
             <div className="modal__content">
                 <h3 className="modal__title">Modal Window</h3>
                 <p className="text">Orders</p>
-                {mealCtx.mealsList.map((item) => {
+                {cartCtx.cartState.items.map((item) => {
                     return (
-                        <div>
+                        <div key={item.id}>
                             <p>{item.name}</p>
                             <p>{item.price}</p>
+                            <p>{item.amount}</p>
+                            <button className="btn" onClick={()=> {cartCtx.addToCart(item, 1);}}>+</button>
+                            <button className="btn">-</button>
                         </div>
                     )
                 })}
