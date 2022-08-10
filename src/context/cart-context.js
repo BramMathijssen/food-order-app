@@ -39,9 +39,18 @@ const cartReducer = (state, action) => {
             for (let i = 0; i < state.items.length; i++) {
                 if (state.items[i].id === action.payload.items.id) {
 
+                    state.items[i].amount = state.items[i].amount - action.payload.amount;
+
+                    if(state.items[i].amount < 1){
+                        state.items.splice(i, 1);
+                    }
+
+                    return { items: [...state.items], totalAmount: state.totalAmount - action.payload.amount }
                 }
             }
-            return
+            
+            throw new Error(`Can't find and item with id ${action.payload.items.id}`);
+
         default:
             throw new Error(`Unknown action type: ${action.type}`);
     }
@@ -50,25 +59,15 @@ const cartReducer = (state, action) => {
 export const CartContextProvider = (props) => {
     const [cartState, dispatch] = useReducer(cartReducer, initialState)
 
-
-    // this function is to be called from Meal.js to call the add cart reducer (dispatch)
     const addToCartHandler = (props, amount) => {
-
-        //call dispatch action = ADD
         dispatch({ type: 'ADD', payload: { items: props, amount: amount } })
 
     }
     console.log(cartState);
 
-
-    // this function is to be called from Meal.js to call the remove cart reducer (dispatch)
-    const removeFromCartHandler = (props) => {
-
-        //call dispatch action = REMOVE
-        dispatch({ type: 'REMOVE', payload: { items: props } })
-        console.log(`cart-context: Called the RemoveCartHandler Function`);
+    const removeFromCartHandler = (props, amount) => {
+        dispatch({ type: 'REMOVE', payload: { items: props, amount: amount } })
     }
-
 
     return (
         <CartContext.Provider value={{ addToCart: addToCartHandler, removeFromCart: removeFromCartHandler, cartState: cartState }}>

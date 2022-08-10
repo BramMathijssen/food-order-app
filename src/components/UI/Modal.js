@@ -18,7 +18,7 @@ const Modal = (props) => {
                             <p>{item.price}</p>
                             <p>{item.amount}</p>
                             <button className="btn" onClick={()=> {cartCtx.addToCart(item, 1);}}>+</button>
-                            <button className="btn">-</button>
+                            <button className="btn" onClick={()=> {cartCtx.removeFromCart(item, 1);}}>-</button>
                         </div>
                     )
                 })}
