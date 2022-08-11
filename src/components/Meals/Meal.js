@@ -2,7 +2,7 @@ import './Meal.scss';
 
 import { IonIcon } from "@ionic/react";
 import { addOutline } from 'ionicons/icons';
-import { useContext, useRef, useState } from 'react';
+import { useContext, useRef } from 'react';
 import CartContext from '../../context/cart-context';
 
 const Meal = (props) => {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Selection from "../Selection";
 
 import sandwich from './../../../assets/images/sandwich.jpg';
