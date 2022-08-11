@@ -1,14 +1,14 @@
-import React, { useReducer, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 
 const CartContext = React.createContext({
     addToCart: () => { },
     removeFromCart: () => { },
-
+    totalPrice: 0
 });
 
 const initialState = {
     items: [],
-    totalAmount: 0
+    totalAmount: 0,
 }
 
 const cartReducer = (state, action) => {
@@ -41,14 +41,14 @@ const cartReducer = (state, action) => {
 
                     state.items[i].amount = state.items[i].amount - action.payload.amount;
 
-                    if(state.items[i].amount < 1){
+                    if (state.items[i].amount < 1) {
                         state.items.splice(i, 1);
                     }
 
                     return { items: [...state.items], totalAmount: state.totalAmount - action.payload.amount }
                 }
             }
-            
+
             throw new Error(`Can't find and item with id ${action.payload.items.id}`);
 
         default:
@@ -58,19 +58,30 @@ const cartReducer = (state, action) => {
 
 export const CartContextProvider = (props) => {
     const [cartState, dispatch] = useReducer(cartReducer, initialState)
+    const [totalPrice, setTotalPrice] = useState(0);
 
     const addToCartHandler = (props, amount) => {
         dispatch({ type: 'ADD', payload: { items: props, amount: amount } })
-
     }
-    console.log(cartState);
 
     const removeFromCartHandler = (props, amount) => {
         dispatch({ type: 'REMOVE', payload: { items: props, amount: amount } })
     }
 
+    useEffect(() => {
+        if (cartState.items.length > 0) {
+            const total = cartState.items.reduce((acc, curr) => {
+                let multiplied = curr.amount * curr.price
+                console.log(`current item amount ${curr.amount} * current item price ${curr.price} = ${multiplied}`);
+                
+                return acc + multiplied;
+            }, 0)
+            setTotalPrice(total);
+        }
+    }, [cartState.totalAmount, cartState.items])
+
     return (
-        <CartContext.Provider value={{ addToCart: addToCartHandler, removeFromCart: removeFromCartHandler, cartState: cartState }}>
+        <CartContext.Provider value={{ addToCart: addToCartHandler, removeFromCart: removeFromCartHandler, cartState: cartState, totalPrice: totalPrice}}>
             {props.children}
         </CartContext.Provider>
     )
