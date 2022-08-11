@@ -9,7 +9,6 @@ const Navigation = () => {
         <nav className="navigation">
             <h3 className="navigation__logo">ReactMeals</h3>
             <ShoppingCart />
-
         </nav>
     )
 }

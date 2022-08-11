@@ -26,10 +26,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-    border-bottom: 1px solid #cccccc2f;
-
-    &__content {
-    }
+    border-bottom: 2px solid #ff60604b;
 
     &__name {
       font-size: 20px;
@@ -52,7 +49,6 @@
       border-radius: 5px;
       padding: 0 10px;
     }
-
   }
 
   .bottom{

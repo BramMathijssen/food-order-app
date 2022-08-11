@@ -16,11 +16,9 @@ const Header = () => {
                     <Button className="btn btn--large" content="Get Started"></Button>
                 </div>
                 <img className='container__image' src={hotdog} alt="hotdog"></img>
-
             </div>
         </header>
     )
-
 }
 
 export default Header;

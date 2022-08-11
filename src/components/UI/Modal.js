@@ -19,7 +19,6 @@ const Modal = (props) => {
                                     <p className="item__price">${item.price}</p>
                                     <p className="item__amount">x {item.amount}</p>
                                 </div>
-
                             </div>
                             <div className="item__controls">
                                 <button className="btn btn--modify" onClick={() => { cartCtx.addToCart(item, 1); }}>+</button>
