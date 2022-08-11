@@ -24,12 +24,49 @@
   .item {
     display: flex;
     justify-content: space-between;
-    
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #cccccc2f;
+
     &__content {
-      background-color: blue;
     }
 
-    &__control {
+    &__name {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    &__flexcontainer {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    &__price {
+      margin-right: 25px;
+      font-weight: bold;
+    }
+
+    &__amount {
+      border: 1px solid rgb(221, 221, 221);
+      border-radius: 5px;
+      padding: 0 10px;
+    }
+
+  }
+
+  .bottom{
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+
+    &__total{
+      font-weight: bold;
+    }
+
+    &__controls{
+      display: flex;
+      gap: 10px;
     }
   }
 }
