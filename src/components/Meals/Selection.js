@@ -36,7 +36,9 @@ const Selection = (props) => {
             }, 2000);
             return () => clearTimeout(timer);
         }
+
         fetchMeals()
+
     }, [])
 
     return (

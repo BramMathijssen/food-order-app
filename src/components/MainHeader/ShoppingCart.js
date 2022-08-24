@@ -10,15 +10,35 @@ const ShoppingCart = () => {
     const [modal, setModal] = useState();
     const cartCtx = useContext(CartContext);
 
+    const orderHandler = async () => {
+        console.log(`hey from orderHandler`);
+        console.log(cartCtx.cartState.items);
+        const response = await fetch('https://react-meals-a793d-default-rtdb.europe-west1.firebasedatabase.app/orders.json', {
+            method: 'POST',
+            body: JSON.stringify(cartCtx.cartState.items),
+            headers: {
+                'Content-type': 'application/json'
+            }
+        });
+        const data = await response.json();
+        console.log(data);
+    }
+
+
     const closeModalHandler = () => {
-        console.log('clicked modal handler');
         setModal('');
     }
 
+    const checkoutHandler = () => {
+        setModal(<Modal closeModal={closeModalHandler} isCheckout={true} order={orderHandler} />)
+    }
+
+
     const openModal = () => {
-        setModal(<Modal closeModal={closeModalHandler} />)
+        setModal(<Modal closeModal={closeModalHandler} checkout={checkoutHandler} />)
         return;
     }
+
 
     return (
         <React.Fragment>

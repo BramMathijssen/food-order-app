@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import CartContext from "../../context/cart-context";
+import Checkout from "../Cart/Checkout";
 
 import './Modal.scss';
 
@@ -9,7 +10,10 @@ const Modal = (props) => {
     return (
         <div className="modal">
             <div className="modal__content">
-                {cartCtx.cartState.items.map((item) => {
+                {console.log(`from Modal:`, props.isCheckout)}
+                {props.isCheckout && <Checkout closeModal={props.closeModal} order={props.order}/>}
+
+                {!props.isCheckOut && cartCtx.cartState.items.map((item) => {
                     return (
 
                         <div className="item" key={item.id}>
@@ -27,15 +31,17 @@ const Modal = (props) => {
                         </div>
                     )
                 })}
-                <div className="bottom">
+
+                {!props.isCheckout && <div className="bottom">
                     <div className="bottom__total">
                         <p>Total : ${cartCtx.totalPrice.toFixed(2)}</p>
                     </div>
                     <div className="bottom__controls">
                         <button className="btn btn--close" onClick={props.closeModal}>close</button>
-                        <button className="btn btn--order" onClick={props.closeModal}>Order</button>
+                        <button className="btn btn--order" onClick={props.checkout}>Order</button>
                     </div>
                 </div>
+                }
             </div>
         </div>
     )
