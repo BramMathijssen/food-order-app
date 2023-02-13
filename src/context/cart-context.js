@@ -70,6 +70,7 @@ export const CartContextProvider = (props) => {
 
     const resetCartHandler = (props, amount) => {
         dispatch({ type: "RESET", payload: {} });
+        setTotalPrice(0);
     };
 
     useEffect(() => {
