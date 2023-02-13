@@ -26,7 +26,6 @@ const Meal = (props) => {
   };
 
   const onClickHandler = () => {
-    console.log(`exectued`);
     setAdded(true);
   };
 
