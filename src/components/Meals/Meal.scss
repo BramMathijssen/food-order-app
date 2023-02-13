@@ -12,8 +12,8 @@
 }
 
 .content {
-    padding: 25px 50px;
-    padding-bottom: 40px;
+  padding: 25px 50px;
+  padding-bottom: 40px;
 
   &__title {
     margin-bottom: 10px;
@@ -40,16 +40,16 @@
     color: $text-color-light;
   }
 
-  &__add{
+  &__add {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    .button--icon{
-        font-weight: bold;
-        height: 18px;
-        width: 18px;
+    .button--icon {
+      font-weight: bold;
+      height: 18px;
+      width: 18px;
+    }
 
-      }
   }
 }
