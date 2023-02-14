@@ -7,7 +7,7 @@ const Navigation = () => {
     
     return (
         <nav className="navigation">
-            <h3 className="navigation__logo">ReactMeals</h3>
+            <h3 className="navigation__logo">QuickBite</h3>
             <ShoppingCart />
         </nav>
     )

@@ -1,0 +1,23 @@
+@import "../../sassStyles/variables";
+
+.checkout {
+  &__control {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+    margin: 15px;
+
+    input {
+      padding: 8px;
+      border: 1px solid #cecece;
+      border-radius: 5px;
+    }
+  }
+
+  &__control--buttons {
+    margin: 15px;
+    margin-top: 25px;
+    display:flex;
+    gap: 10px;
+  }
+}

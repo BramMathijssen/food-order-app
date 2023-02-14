@@ -1,0 +1,9 @@
+.order_complete {
+    padding: 20px;
+    &__title{
+        margin-bottom: 10px;
+    }
+    &__message {
+        margin-bottom: 15px;
+    }
+}
